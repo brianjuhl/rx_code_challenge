@@ -16,7 +16,7 @@ Once Docker is configured, simply pull down the code, ```cd``` into the project 
 
 Next you'll need to seed the database with the provided list of pharamacies. 
 
-```docker exec rx_code_challenge_api python -m pharmacies.data.seeder```
+```docker exec rx_code_challenge_api python -m lib.apps.pharmacies.data.seeder```
 
 To ensure everything has been configured properly, run the project's tests.
 
