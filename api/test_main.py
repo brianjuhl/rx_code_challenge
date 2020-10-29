@@ -9,6 +9,6 @@ class TestServer(unittest.TestCase):
         self.client = TestClient(app)
 
     def test_index(self):
-        """Server index route responds with a status 404"""
+        """server index route responds with status 404"""
         response = self.client.get("/")
         self.assertEqual(response.status_code, 404)
