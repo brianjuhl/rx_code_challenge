@@ -32,6 +32,7 @@ def seed_pharmacies(pharmacy_data):
         except errors.ValidationError:
             print("Invalid pharmacy shape provided")
             pass
+    print("Pharmacy data has been loaded")
 
 
 if __name__ == "__main__":
