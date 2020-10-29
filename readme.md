@@ -26,7 +26,3 @@ The tests should all pass and you should now be able to access this project's in
 
 If you woud like the project to map to a different port, this can be modified in the docker-compose.yml file 
 at the root of the project. 
-
-You will need to run ```docker-compose up -d --build``` again for any changes to take effect. You do not need to run the seeder again. 
-
-If you would like to restart the container with a new volume (erasing the data added by the seeder) adding the ```-V``` flag to ```docker-compose up -d --build``` will do so.
