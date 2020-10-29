@@ -18,7 +18,7 @@ Next you'll need to seed the database with the provided list of pharamacies.
 
 ```docker exec rx_code_challenge_api python -m pharmacies.data.seeder```
 
-To ensure everything has been configured properly, run the projects tests.
+To ensure everything has been configured properly, run the project's tests.
 
 ```docker exec -it rx_code_challenge_api green -vvv -r```
 
