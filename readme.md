@@ -26,3 +26,7 @@ The tests should all pass and you should now be able to access this project's in
 
 If you woud like the project to map to a different port, this can be modified in the docker-compose.yml file 
 at the root of the project. 
+
+To stop the containers and remove the volume used by the mongodb service run:
+
+```docker-compose down -v```
