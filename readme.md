@@ -10,12 +10,16 @@ in this project include:
 # Running Locally
 First make sure [Docker and Docker Compose](https://docs.docker.com/get-docker/) are installed on your machine. 
 
-Once Docker is configured, simply pull down the code, ```cd``` into the project directory and run ``` docker-compose up -d --build``` to build and start the containers.
+Once Docker is configured, simply pull down the code, ```cd``` into the project directory and build and start the containers.
+
+``` docker-compose up -d --build```
 
 Next you'll need to seed the database with the provided list of pharamacies. 
+
 ```docker exec rx_code_challenge_api python -m pharmacies.data.seeder```
 
-To ensure everything has been configured properly, the project's tests can be run with: 
+To ensure everything has been configured properly, run the projects tests.
+
 ```docker exec -it rx_code_challenge_api green -vvv -r```
 
 The tests should all pass and you should now be able to access this project's interactive API docs at [localhost:5000/docs](http://localhost:5000/docs)
