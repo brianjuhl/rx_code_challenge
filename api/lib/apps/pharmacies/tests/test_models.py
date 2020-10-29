@@ -1,6 +1,8 @@
 import unittest
-from mongoengine import connect, disconnect, get_connection, errors
 
+from mongoengine import errors
+
+from ....database import connect_to_mongo_service, disconnect_from_mongo_service
 from ..models import Pharmacy
 
 
@@ -19,11 +21,11 @@ class TestPharmacyModels(unittest.TestCase):
 
     def setUp(self):
         """set up test database connection"""
-        connect("testdb", host="mongomock://localhost")
+        connect_to_mongo_service("mongomock://localhost")
 
     def tearDown(self):
         """disconnect test database"""
-        disconnect()
+        disconnect_from_mongo_service()
 
     def test_valid_pharmacy(self):
         """pharmacy with valid shape is created successfully"""
