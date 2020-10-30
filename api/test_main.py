@@ -1,8 +1,10 @@
-from fastapi.testclient import TestClient
-
 import unittest
 
+from fastapi.testclient import TestClient
+
+
 from .main import app
+
 
 class TestServer(unittest.TestCase):
     def setUp(self):
