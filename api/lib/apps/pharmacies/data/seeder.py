@@ -25,14 +25,16 @@ def parse_pharmacies_from_csv(file_path):
 
 def seed_pharmacies(pharmacy_data):
     """seed database with parsed pharmacy data"""
+    invalid_rows = 0
     for pharmacy in pharmacy_data:
         try:
             new_pharmacy = Pharmacy(**pharmacy)
             new_pharmacy.save()
         except errors.ValidationError:
             print("Invalid pharmacy shape provided")
-            pass
-    print("Pharmacy data has been loaded")
+            invalid_rows += 1
+    # return invalid row count
+    return invalid_rows
 
 
 if __name__ == "__main__":
@@ -41,6 +43,7 @@ if __name__ == "__main__":
     # assuming file is in the same directory as this file
     module_path = pathlib.Path(__file__).parent.absolute()
     pharmacy_data = parse_pharmacies_from_csv(f"{module_path}/pharmacies.csv")
-    seed_pharmacies(pharmacy_data)
+    invalid_rows = seed_pharmacies(pharmacy_data)
+    print(f"Pharmacy data has been loaded with {invalid_rows} invalid rows")
     # close connection to mongo service
     disconnect_from_mongo_service()
