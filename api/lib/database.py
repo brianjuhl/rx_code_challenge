@@ -6,6 +6,9 @@ from mongoengine import connect, disconnect, errors, get_connection, connection
 class MongoURIError(Exception):
     pass
 
+class DatabaseEmptyError(Exception):
+    pass
+
 def connect_to_mongo_service(mongo_uri=None):
     """ 
     Connect to mongo uri explicitly provided or by default, 
@@ -27,10 +30,7 @@ def disconnect_from_mongo_service():
 
 
 def is_mongo_service_connected():
-    """
-    Use ismaster command to test db connection
-    pymongo no longer raises an exception when connecting
-    """
+    """Check if mongo service is connected"""
     try:
         conn = get_connection()
         return True
