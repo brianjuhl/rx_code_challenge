@@ -31,7 +31,6 @@ def seed_pharmacies(pharmacy_data):
             new_pharmacy = Pharmacy(**pharmacy)
             new_pharmacy.save()
         except errors.ValidationError:
-            print("Invalid pharmacy shape provided")
             invalid_rows += 1
     # return invalid row count
     return invalid_rows
@@ -44,6 +43,6 @@ if __name__ == "__main__":
     module_path = pathlib.Path(__file__).parent.absolute()
     pharmacy_data = parse_pharmacies_from_csv(f"{module_path}/pharmacies.csv")
     invalid_rows = seed_pharmacies(pharmacy_data)
-    print(f"Pharmacy data has been loaded with {invalid_rows} invalid rows")
+    print(f"Pharmacy data has been loaded with {invalid_rows} invalid rows skipped.")
     # close connection to mongo service
     disconnect_from_mongo_service()
