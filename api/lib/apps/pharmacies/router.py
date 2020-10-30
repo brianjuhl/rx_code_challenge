@@ -1,5 +1,3 @@
-import sys
-
 from fastapi import APIRouter, HTTPException, Depends
 from mongoengine.connection import ConnectionFailure
 
