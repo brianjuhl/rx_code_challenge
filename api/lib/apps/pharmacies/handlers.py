@@ -2,6 +2,7 @@ import json
 from scipy import spatial
 
 from .models import Pharmacy
+from ...database import DatabaseEmptyError
 
 
 def locate_nearest_pharmacy(latitude, longitude):
@@ -17,6 +18,10 @@ def locate_nearest_pharmacy(latitude, longitude):
     # using KD Tree instead
     # query database for all pharmacies
     pharmacies = Pharmacy.objects.only('coordinates')
+
+    # raise exception if no pharmacies (database not seeded)
+    if len(pharmacies) == 0:
+        raise DatabaseEmptyError("No pharmacies in database")
 
     # set empty location array
     locations = []
