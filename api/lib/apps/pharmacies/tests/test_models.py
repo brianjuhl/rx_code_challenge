@@ -29,9 +29,8 @@ class TestPharmacyModels(unittest.TestCase):
 
     def test_valid_pharmacy(self):
         """pharmacy with valid shape is created successfully"""
-        pharmacy = Pharmacy(**self.valid_pharmacy_data)
         # will throw a mongoengine.errors.ValidationError if invalid shape
-        pharmacy.save()
+        Pharmacy(**self.valid_pharmacy_data).save()
 
     def test_calculate_distance_from(self):
         """correctly calculates distance from provided location"""
